@@ -1,0 +1,33 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian]{babel}
+\usepackage[T1]{fontenc} 
+\usepackage{graphicx}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr} 
+\usepackage{cmap}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\thepage} 
+  \fancyhead[R]{Квас Кирил ПМп-43} 
+  \renewcommand{\headrulewidth}{1pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \setlength{\headheight}{14.49998pt}
+}
+
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\input{thesis/title}
+
+\tableofcontents
+
+\input{thesis/introduction}
+\input{thesis/problem_statement}
+\input{thesis/references}
+
+\end{document}
