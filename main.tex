@@ -152,18 +152,19 @@
 \begin{tikzpicture}
 
 % Alice and Bob nodes
-\node at (-2, 0) {\textbf{Alice}};
-\node at (8, 0) {\textbf{Bob}};
+\node at (-2, 0) {\textbf{Аліса}};
+\node at (8, 0) {\textbf{Боб}};
 
-\node at (-0.9, -1) {$y = e_{k_{\text{pub}}}(x)$};
-\node at (6, -1.5) {$x = d_{k_{\text{pr}}}(y)$};
+% Encryption and decryption
+\node at (-0.9, -1) {$y = e_{k_{\text{pub}}^{(1)}}(x)$};
+\node at (6.9, -1) {$x = d_{k_{\text{pr}}^{(1)}}(y)$};
 
-\node at (7, 1) {$(k_{\text{pub}}, k_{\text{pr}}) = k$};
+% Key pair generation
+\node at (7.5, 1) {$(k_{\text{pub}}^{(1)}, k_{\text{pr}}^{(1)}) = k^{(1)}$};
 
 % Arrows and labels
-\draw[<-] (0.5, 1) -- (5.5, 1) node[midway, above] {$k_{\text{pub}}$};
-\draw[->] (0.5, -1) -- (5.5, -1) node[midway, below] {$y$};
-
+\draw[<-] (0.5, 1) -- (5.5, 1) node[midway, above] {$k_{\text{pub}}^{(1)}$};
+\draw[->] (0.5, -1) -- (5.5, -1) node[midway, below] {$y^{2}$};
 
 \end{tikzpicture}
 \caption{Базовий протокол асиметричного шифрування на основі класичного алгоритму.}
@@ -176,21 +177,34 @@
 \begin{tikzpicture}
 
 % Alice and Bob nodes
-\node at (-2, 0) {\textbf{Alice}};
-\node at (8, 0) {\textbf{Bob}};
+\node at (-2, 0) {\textbf{Аліса}};
+\node at (8, 0) {\textbf{Боб}};
 
-\node at (-0.9, -1) {$y = e_{k_{\text{pub}}}(x)$};
-\node at (6.9, -1) {$x = d_{k_{\text{pr}}}(y)$};
+% Encryption and decryption
+\node at (-0.9, -1) {$y = e_{k_{\text{pub}}^{(2)}}(x)$};
+\node at (6.9, -1) {$x = d_{k_{\text{pr}}^{(2)}}(y)$};
 
-\node at (7, 1) {$(k_{\text{pub}}, k_{\text{pr}}) = k$};
+% Key pair generation
+\node at (7.5, 1) {$(k_{\text{pub}}^{(2)}, k_{\text{pr}}^{(2)}) = k^{(2)}$};
 
-\draw[<-] (0.5, 1) -- (5.5, 1) node[midway, above] {$k_{\text{pub}}$};
-\draw[->] (0.5, -1) -- (5.5, -1) node[midway, below] {$y$};
-
+% Arrows and labels
+\draw[<-] (0.5, 1) -- (5.5, 1) node[midway, above] {$k_{\text{pub}}^{(2)}$};
+\draw[->] (0.5, -1) -- (5.5, -1) node[midway, below] {$y^{2}$};
 
 \end{tikzpicture}
 \caption{Базовий протокол асиметричного шифрування на основі ECC.}
 \label{fig:basic_protocol_ecc}
 \end{center}
 \end{figure}
+
+\section*{Пояснення до символів}
+\begin{itemize}
+    \item $k_{\text{pub}}^{(1)}$, $k_{\text{pub}}^{(2)}$: публічний ключ для класичного алгоритму та ECC відповідно.
+    \item $k_{\text{pr}}^{(1)}$, $k_{\text{pr}}^{(2)}$: приватний ключ для класичного алгоритму та ECC відповідно.
+    \item $k^{(1)}$, $k^{(2)}$: пара ключів (публічний і приватний) для класичного алгоритму та ECC відповідно.
+    \item $e_{k_{\text{pub}}^{(1)}}$, $e_{k_{\text{pub}}^{(2)}}$: функція шифрування з використанням публічного ключа.
+    \item $d_{k_{\text{pr}}^{(1)}}$, $d_{k_{\text{pr}}^{(2)}}$: функція дешифрування з використанням приватного ключа.
+    \item $x$: вихідне повідомлення, яке потрібно зашифрувати.
+    \item $y^{(1)}, y^{(2)}$: зашифроване повідомлення з використанням класичного алгоритму та ECC відповідно.
+\end{itemize}
 \end{document}
