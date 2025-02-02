@@ -208,9 +208,6 @@
         return totalTime / iterations;
       }
 
-      // Задаємо довжини повідомлень (у байтах) та кількість повторень для бенчмарку
-      const messageLengths2 = [1024, 2048, 4096, 4096 * 2, 4096 * 4];
-
       const messageLengths = [
         1048576 / 10, // 0.1 МБ
         2097152 / 10, // 0.2 МБ
@@ -218,6 +215,10 @@
         (2097152 / 5) * 2, // 0.8 МБ
         5242880 / 5, // 1 МБ
       ];
+
+      const messageLengthsMB = messageLengths.map(
+        (bytes) => (bytes / 1048576).toFixed(1) + " МБ"
+      );
 
       const iterations = 50;
       let classicalTimes = [];
@@ -236,7 +237,7 @@
       // =====================================
       const ctx = document.getElementById("benchmarkChart").getContext("2d");
       const data = {
-        labels: messageLengths.map((l) => l + " байт"),
+        labels: messageLengthsMB, // Відображення розмірів у МБ
         datasets: [
           {
             label: "Класичний ElGamal",
@@ -277,7 +278,7 @@
             x: {
               title: {
                 display: true,
-                text: "Довжина повідомлення",
+                text: "Розмір повідомлення (МБ)",
               },
             },
             y: {
