@@ -192,8 +192,7 @@
         const blocks = Math.ceil(messageLength / blockSize);
         let totalTime = 0;
         for (let i = 0; i < iterations; i++) {
-          // Симулюємо повідомлення як набір точок. Для демонстрації використаємо фіксовану точку,
-          // яка лежить на кривій (перевірка проводиться заздалегідь).
+          // Симулюємо повідомлення як набір точок. Використовуємо фіксовану точку (що лежить на кривій)
           let messagePoints = [];
           for (let j = 0; j < blocks; j++) {
             messagePoints.push({ x: 562n, y: 89n });
@@ -208,6 +207,7 @@
         return totalTime / iterations;
       }
 
+      // Задаємо розміри повідомлень (у байтах) для 0.1 МБ, 0.2 МБ, 0.4 МБ, 0.8 МБ та 1 МБ.
       const messageLengths = [
         1048576 / 10, // 0.1 МБ
         2097152 / 10, // 0.2 МБ
@@ -269,9 +269,19 @@
             title: {
               display: true,
               text: "Порівняння швидкостей шифрування (реальний час)",
+              font: {
+                size: 20, // Розмір заголовка графіка
+                weight: "bold",
+              },
+              color: "#333",
             },
             legend: {
               position: "top",
+              labels: {
+                font: {
+                  size: 16, // Розмір шрифту в легенді
+                },
+              },
             },
           },
           scales: {
@@ -279,12 +289,34 @@
               title: {
                 display: true,
                 text: "Розмір повідомлення (МБ)",
+                font: {
+                  size: 18, // Розмір заголовка осі X
+                  weight: "bold",
+                },
+                color: "#333",
+              },
+              ticks: {
+                font: {
+                  size: 16, // Розмір шрифту міток осі X
+                },
+                color: "#333",
               },
             },
             y: {
               title: {
                 display: true,
                 text: "Час шифрування (мс)",
+                font: {
+                  size: 18, // Розмір заголовка осі Y
+                  weight: "bold",
+                },
+                color: "#333",
+              },
+              ticks: {
+                font: {
+                  size: 16, // Розмір шрифту міток осі Y
+                },
+                color: "#333",
               },
               beginAtZero: true,
             },
